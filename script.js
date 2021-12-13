@@ -19,3 +19,19 @@ function setPixelToWorldScale() {
     worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
     worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
 }
+
+
+let lastTime
+function update(time) {
+    if (lastTime == null){
+        lastTime = time
+        window.requestAnimationFrame(update)
+        return
+    }
+    const delta = time - lastTime
+
+    lastTime = time
+    window.requestAnimationFrame(update)
+}
+
+window.requestAnimationFrame(update)
