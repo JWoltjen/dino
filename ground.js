@@ -5,5 +5,7 @@ function updateGround(delta){
 }
 
 export function updateGround(delta) {
-    
+    groundElems.forEach(ground => {
+        
+    })
 }
