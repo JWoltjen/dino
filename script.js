@@ -1,13 +1,13 @@
-import { updateGround } from './ground.js'
+import { setupGround, updateGround } from './ground.js'
 
 const WORLD_WIDTH = 100
 const WORLD_HEIGHT = 30
-
-
 const worldElem = document.querySelector('[data-world')
 
 setPixelToWorldScale()
 window.addEventListener("resize", setPixelToWorldScale)
+setupGround()
+
 
 function setPixelToWorldScale() {
     let worldToPixelScale
@@ -17,7 +17,6 @@ function setPixelToWorldScale() {
     } else {
         worldToPixelScale = window.innerHeight / WORLD_HEIGHT
     }
-
     worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
     worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
 }
