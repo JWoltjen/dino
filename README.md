@@ -1,6 +1,7 @@
 # dino
 A clone of Chrome's 404 screen
 
+![Recordit GIF](http://g.recordit.co/VfNzbBpqS3.gif)
 
 ## How do objects update their position on screen? 
 Three functions contained in updateCustomeProperty.js are largely responsible for keeping track of values that determine movement. These are getCustomProperty(), setCustomProperty(), and incrementCustomProperty(). These functions take in an element, and a custom css property, and then manipulate that element's property value. 
