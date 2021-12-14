@@ -1,17 +1,17 @@
-import { setCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
+import { setCustomProperty, getCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
 
-const SPEED = .05; 
+const SPEED = .05
 const CACTUS_INTERVAL_MIN = 500
 const CACTUS_INTERVAL_MAX = 2000
 const worldElem = document.querySelector("[data-world]")
 
+let nextCactusTime 
 export function setupCactus() {
-    nextCactusTIme = CACTUS_INTERVAL_MIN
-    document.querySelectorAll("[data-cactus]").forEach(cactusf => {
+    nextCactusTime = CACTUS_INTERVAL_MIN
+    document.querySelectorAll("[data-cactus]").forEach(cactus => {
         cactus.remove(); 
     })
 }
-
 
 export function updateCactus(delta, speedScale){
     document.querySelectorAll("[data-cactus]").forEach(cactus => {
@@ -27,9 +27,15 @@ export function updateCactus(delta, speedScale){
     nextCactusTime -= delta
 }
 
+export function getCactusRects() {
+    return [...document.querySelectorAll("[data-cactus]")].map(cactus => {
+        return cactus.getBoundingClientRect()
+    })
+}
+
 
 function createCactus() {
-    const cactus = document.createElement("div")
+    const cactus = document.createElement("img")
     cactus.dataset.cactus = true
     cactus.src = "imgs/cactus.png"
     cactus.classList.add("cactus")
@@ -38,5 +44,5 @@ function createCactus() {
 }
 
 function randomNumberBetween(min, max){
-    Math.floor(Math.random() * (max -min + 1) + min)
+   return Math.floor(Math.random() * (max -min + 1) + min)
 }
