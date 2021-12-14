@@ -7,5 +7,5 @@ export function setCustomProperty(elem, prop, value) {
 }
 
 export function incrementCustomProperty(elem, prop, inc) {
-    setCustomProperty(elem, prop, getCustomProperty(elem, prop)+inc)
-}
+    setCustomProperty(elem, prop, getCustomProperty(elem, prop) + inc)
+}  
