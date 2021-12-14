@@ -9,6 +9,8 @@ For instance, to set up a dinosaur at the start of the game, the setupDino() fun
 
 If the dinosaur jumps, incrementCustomProperyt is calledd, which again takes in the (dinoElem, "--bottom", and a variable called yVelocity * delta), in order to determine how --bottom value should be changed, which directly results in a positional change of the dinoElem on the display. 
 
+## How does the game handle cactus intervals? 
+Two variables CACTUS_INTERVAL_MIN and CACTUS_INTERVAL_MAX are created inside of cactus.js. Another variable, nextCactusTime is also created and is initially set to CACTUS_INTERVAL_MIN inside of the setupCactus() function. When updateCactus is run, any element in the document with an attribute of [data=cactus] is incremented left based on the (--left) attribute. If the (--left) attribute is less than -100, it is removed from the document. Each time updateCactus() function is run, the nextCactusTime value is subtracted by the delta. If nextCactusTime is less than 0, the createCactus() function is run, which creates a new img element, adds it to the cactus dataset, adds the classList of "Cactus" to the element, sets its custom (--left) property to 100, and then appends the new element to the world. 
 
 
 ## How are collisions handled? 
